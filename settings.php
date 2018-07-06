@@ -28,7 +28,21 @@ if (is_siteadmin()) {
     $settings = new admin_settingpage('tool_audiencesync', get_string('pluginname', 'tool_audiencesync'));
     $ADMIN->add('tools', $settings);
 
-    // Sync users on creation?
-    // Sync on HR sync?
-    // Use an ad hock task?
+    $name = 'tool_audiencesync/enabled';
+    $title = get_string('settings_enabled', 'tool_audiencesync');
+    $description = get_string('settings_enabled_desc', 'tool_audiencesync');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $settings->add($setting);
+
+    $name = 'tool_audiencesync/adhoc';
+    $title = get_string('settings_adhoc', 'tool_audiencesync');
+    $description = get_string('settings_adhoc_desc', 'tool_audiencesync');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $settings->add($setting);
+
+    $name = 'tool_audiencesync/hrsync';
+    $title = get_string('settings_hrsync', 'tool_audiencesync');
+    $description = get_string('settings_hrsync_desc', 'tool_audiencesync');
+    $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
+    $settings->add($setting);
 }

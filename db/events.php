@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Lang strings.
+ * A list of events we are listening for.
  *
  * @package    tool_audiencesync
  * @copyright  2018 Dmitrii Metelkin <dmitriim@catalyst-au.net>
@@ -24,13 +24,9 @@
 
 defined('MOODLE_INTERNAL') || die;
 
-$string['pluginname'] = 'Extended audience sync';
-$string['apply_program_assignments_failed'] = 'Apply program assignments failed';
-$string['apply_cohort_memberships_failed'] = 'Apply cohort memberships failed';
-$string['apply_cohort_enrolments_failed'] = 'Apply cohort enrolments failed';
-$string['settings_enabled'] = 'Enable sync on user creation';
-$string['settings_enabled_desc'] = 'Enable or disable audience rsync after a new user is created.';
-$string['settings_adhoc'] = 'Process sync via adhoc task';
-$string['settings_adhoc_desc'] = 'Instead of running a sync runtime, a new adhoc task will be generated to sync a new user.';
-$string['settings_hrsync'] = 'Sync during HR sync';
-$string['settings_hrsync_desc'] = 'If enabled, audience sync will be run for new users during HR sync. This will increase HR sync time.';
+$observers = array(
+    array(
+        'eventname'   => '\core\event\user_created',
+        'callback'    => '\tool_audiencesync\event_observer::user_created',
+    ),
+);
