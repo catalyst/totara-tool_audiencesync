@@ -38,10 +38,11 @@ class event_observer {
      *
      * @param \core\event\user_created $event
      *
+     * @throws \coding_exception
      * @throws \dml_exception
      */
     public static function user_created(\core\event\user_created $event) {
-        if (isset($event->objectid) && self::should_run_sync_user($event->objectid)) {
+        if (self::should_run_sync_user($event->objectid)) {
             if (!empty(get_config('tool_audiencesync', 'sync_via_adhoc'))) {
                 sync_manager::queue_sync_user_adhoc_task($event->objectid);
             } else {
@@ -63,21 +64,31 @@ class event_observer {
             return false;
         }
 
-        // Sync disabled during HR sync. Check if HR sync is executing.
-        if (empty(get_config('tool_audiencesync', 'sync_during_hrsync'))) {
-            $backtrace = debug_backtrace();
-            foreach ($backtrace as $bt) {
-                if (isset($bt['object']) and is_object($bt['object'])) {
-                    if ($bt['object'] instanceof \totara_sync_element_user) {
-                        if ($bt['function'] == 'create_user') {
-                            return false;
-                        }
+        if (empty(get_config('tool_audiencesync', 'sync_during_hrsync')) && self::is_user_created_by_hr_sync()) {
+            return false;
+        }
+
+        return true;
+    }
+
+    /**
+     * Check if a user was created via HR sync.
+     *
+     * @return bool
+     */
+    public static function is_user_created_by_hr_sync() {
+        $backtrace = debug_backtrace();
+        foreach ($backtrace as $bt) {
+            if (isset($bt['object']) and is_object($bt['object'])) {
+                if ($bt['object'] instanceof \totara_sync_element_user) {
+                    if ($bt['function'] == 'create_user') {
+                        return true;
                     }
                 }
             }
         }
 
-        return true;
+        return false;
     }
 
 }
