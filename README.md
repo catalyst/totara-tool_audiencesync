@@ -2,9 +2,9 @@
 A plugin provides some additional functionality to extend Totara core Dynamic Audiences functionality.
 
 ## Features
-* Audience syn for a single user on a user creation (could be enabled or disabled via UI)
+* Audience sync for a single user on a user creation (could be enabled or disabled via UI)
 * Enable / Disable individual audience sync during HR import process
-* Run individual audience sync runtime or via cron as an adhoc task
+* Run individual audience sync at runtime or via cron as an adhoc task
 
 ## Installation
 To install this plugin in your LMS.

@@ -63,7 +63,7 @@ abstract class sync_manager {
     public static function queue_sync_user_adhoc_task($userid) {
         $adhocktask = new sync_user_adhoc_task();
         $adhocktask->set_custom_data($userid);
-        $adhocktask->set_component('local_alh');
+        $adhocktask->set_component('tool_audiencesync');
 
         return \core\task\manager::queue_adhoc_task($adhocktask);
     }

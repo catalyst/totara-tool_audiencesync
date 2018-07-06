@@ -41,7 +41,7 @@ class apply_program_assignments_failed extends \core\event\base {
     }
 
     public function get_description() {
-        return "Failed assign user '{$this->userid}' to program '{$this->other['programid']}': '{$this->other['error']}'";
+        return "Failed to assign user '{$this->userid}' to program '{$this->other['programid']}': '{$this->other['error']}'";
     }
 
 }

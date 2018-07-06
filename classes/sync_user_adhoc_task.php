@@ -15,7 +15,7 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * ALH Customisations Local plugin. Ad hoc task to apply learning rules.
+ * Ad hoc task to syn a user.
  *
  * @package    tool_audiencesync
  * @copyright  2018 Dmitrii Metelkin <dmitriim@catalyst-au.net>
