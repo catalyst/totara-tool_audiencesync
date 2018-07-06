@@ -40,6 +40,9 @@ abstract class sync_manager {
      * 3. Apply program and certification assignments.
      *
      * @param int $userid User ID.
+     *
+     * @throws \coding_exception
+     * @throws \dml_exception
      */
     public static function sync_user($userid) {
         global $DB;
@@ -71,7 +74,12 @@ abstract class sync_manager {
     /**
      * Apply user's cohort membership rules.
      *
+     * Most of this code was taken from core.
+     *
      * @param int $userid User ID.
+     *
+     * @throws \coding_exception
+     * @throws \dml_exception
      */
     public static function apply_cohort_memberships($userid) {
         global $DB;
@@ -108,9 +116,13 @@ abstract class sync_manager {
     /**
      * Apply enrolment based on cohort memberships.
      *
+     * Most of this code was taken from core.
+     *
      * @param int $userid User ID.
      *
      * @return bool
+     * @throws \coding_exception
+     * @throws \dml_exception
      */
     public static function apply_cohort_enrolments($userid) {
         global $DB;
@@ -174,7 +186,12 @@ abstract class sync_manager {
     /**
      * Apply any program/certification assignments for the user based on audience rules.
      *
+     * Most of this code was taken from core.
+     *
      * @param int $userid User ID.
+     *
+     * @throws \coding_exception
+     * @throws \dml_exception
      */
     public static function apply_cohort_program_assignments($userid) {
         global $DB;
