@@ -1,18 +1,19 @@
-# Extended Totara audience syn
-A plugin provides some additional functionality to extend Totara coore Audience functionality.
-
+# Extended audience sync
+A plugin provides some additional functionality to extend Totara core Dynamic Audiences functionality.
 
 ## Features
-TODO
+* Audience syn for a single user on a user creation (could be enabled or disabled via UI)
+* Enable / Disable individual audience sync during HR import process
+* Run individual audience sync runtime or via cron as an adhoc task
 
 ## Installation
 To install this plugin in your LMS.
-1. Get the code and copy it to: `/<lms root dir>/admin/tool/audiencesync`
-2. Run the upgrade using admin interface or command line, like `sudo -u www-data php /admin/cli/upgrade.php`
+* Get the code and copy it to: `/<lms root dir>/admin/tool/audiencesync`
+* Run the upgrade using admin interface or command line, like `sudo -u www-data php /admin/cli/upgrade.php`
 
 ## Configuration 
-TODO
-
+* Navigate to Site administration > Plugins > Admin tools > Extended audience sync
+* Configure the plugin as required
 
 # Crafted by Catalyst IT
 
