@@ -34,15 +34,15 @@ if (is_siteadmin()) {
     $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
     $settings->add($setting);
 
-    $name = 'tool_audiencesync/adhoc';
-    $title = get_string('settings_adhoc', 'tool_audiencesync');
-    $description = get_string('settings_adhoc_desc', 'tool_audiencesync');
+    $name = 'tool_audiencesync/sync_via_adhoc';
+    $title = get_string('settings_sync_via_adhoc', 'tool_audiencesync');
+    $description = get_string('settings_sync_via_adhoc_desc', 'tool_audiencesync');
     $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
     $settings->add($setting);
 
-    $name = 'tool_audiencesync/hrsync';
-    $title = get_string('settings_hrsync', 'tool_audiencesync');
-    $description = get_string('settings_hrsync_desc', 'tool_audiencesync');
+    $name = 'tool_audiencesync/sync_during_hrsync';
+    $title = get_string('settings_sync_during_hrsync', 'tool_audiencesync');
+    $description = get_string('settings_sync_during_hrsync_desc', 'tool_audiencesync');
     $setting = new admin_setting_configcheckbox($name, $title, $description, 0);
     $settings->add($setting);
 }

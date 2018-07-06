@@ -42,7 +42,7 @@ class event_observer {
      */
     public static function user_created(\core\event\user_created $event) {
         if (isset($event->objectid) && self::should_run_sync_user($event->objectid)) {
-            if (!empty(get_config('tool_audiencesync', 'adhoc'))) {
+            if (!empty(get_config('tool_audiencesync', 'sync_via_adhoc'))) {
                 sync_manager::queue_sync_user_adhoc_task($event->objectid);
             } else {
                 sync_manager::sync_user($event->objectid);
@@ -64,7 +64,7 @@ class event_observer {
         }
 
         // Sync disabled during HR sync. Check if HR sync is executing.
-        if (empty(get_config('tool_audiencesync', 'hrsync'))) {
+        if (empty(get_config('tool_audiencesync', 'sync_during_hrsync'))) {
             $backtrace = debug_backtrace();
             foreach ($backtrace as $bt) {
                 if (isset($bt['object']) and is_object($bt['object'])) {
