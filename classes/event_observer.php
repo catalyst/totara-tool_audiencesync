@@ -45,7 +45,7 @@ class event_observer {
             if (!empty(get_config('tool_audiencesync', 'adhoc'))) {
                 sync_manager::queue_sync_user_adhoc_task($event->objectid);
             } else {
-                sync_manager::syn_user($event->objectid);
+                sync_manager::sync_user($event->objectid);
             }
         }
     }

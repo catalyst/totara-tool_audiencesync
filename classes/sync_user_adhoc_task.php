@@ -36,7 +36,7 @@ class sync_user_adhoc_task extends \core\task\adhoc_task {
      * Sync a user.
      */
     public function execute() {
-        sync_manager::syn_user($this->get_custom_data());
+        sync_manager::sync_user($this->get_custom_data());
     }
 
 }

@@ -41,7 +41,7 @@ abstract class sync_manager {
      *
      * @param int $userid User ID.
      */
-    public static function syn_user($userid) {
+    public static function sync_user($userid) {
         global $DB;
 
         $user = $DB->get_record('user', array('id' => $userid));
